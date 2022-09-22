@@ -18,6 +18,10 @@ export class InsertSeguroComponent implements OnInit, OnDestroy {
     prima: 0,
     estado: ""
   }
+  expresiones = {
+    texto: /^[a-zA-ZÀ-ÿ\s]{1,50}$/,
+    valor: /^\d/,
+  }
 
   constructor(
     private seguroService: SeguroService,
@@ -62,6 +66,32 @@ export class InsertSeguroComponent implements OnInit, OnDestroy {
     }
 
   }
+  validarDatos() {
+    if (this.expresiones.valor.test(this.seguro.valor_Asegurado.toString())
+      && this.expresiones.valor.test(this.seguro.prima.toString())
+      && this.expresiones.texto.test(this.seguro.descripcion)
+    ) {
+      if (this.seguro.valor_Asegurado > 0) {
+        return true
+      }
+      else if(this.seguro.valor_Asegurado < 0) {
+        alert("valor asegurado debe ser mayor de 0");
+        return false;
+      }
+      if (this.seguro.prima > 0) {
+        return true
+      }
+      else {
+        alert("prima debe ser mayor de 0");
+        return false;
+      }
 
+    }
+    else {
+      alert("Los datos son incorrectos")
+      return false;
+    }
+
+  }
 
 }
