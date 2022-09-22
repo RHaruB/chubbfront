@@ -15,8 +15,8 @@
     <tr *ngFor="let item of seguros">
       <th scope="row">{{item.codigo}}</th>
       <td>{{item.descripcion}}</td>
-      <td>{{item.valor_Asegurado}}</td>
-      <td>{{item.prima}}</td>
+      <td>{{item.valor_Asegurado|currency}}</td>
+      <td>{{item.prima | currency}}</td>
       <td><button class="btn btn-success"  (click)="editarSeguro(item)">Editar</button></td>
     </tr>
   </tbody>
