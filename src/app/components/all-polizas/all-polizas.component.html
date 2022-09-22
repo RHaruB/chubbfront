@@ -1,0 +1,82 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-2">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+        (click)="codigoSeguro = 0">
+        Registrar Poliza
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Asiganar póliza</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Seguros</p>
+              <select [(ngModel)]="codigoSeguro" [ngModelOptions]="{standalone: true}">
+                <option value="0">Seleccionar seguro</option>
+                <option *ngFor="let item of seguros" [value]="item.codigo">{{item.descripcion}}</option>
+              </select>
+              <p>Clientes</p>
+              <select [(ngModel)]="codigoCliente" [ngModelOptions]="{standalone: true}">
+                <option value="0">Seleccionar cliente</option>
+
+                <option *ngFor="let item of personas" [value]="item.codigo">{{item.cedula}} - {{item.nombre}}</option>
+              </select>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="asignar()">Guardar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-2 mt-1">
+      <select class="w-100" [(ngModel)]="codigoSeguro" [ngModelOptions]="{standalone: true}" >
+        <option value="0">Seleccionar seguro</option>
+        <option *ngFor="let item of seguros" [value]="item.codigo">{{item.descripcion}}</option>
+      </select>
+    </div>
+    <div class="col-2 mt-1">
+      <input type="text" placeholder="Cédula"  [(ngModel)]="cedula" [ngModelOptions]="{standalone: true}" maxlength="10">
+    </div>
+    <div class="col-2 ">
+      <button class="btn btn-warning" (click)="buscar()">Buscar</button>
+    </div>
+  </div>
+
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Número Póliza</th>
+        <th scope="col">Cédula</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Código Seguro</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Prima</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of polizas">
+        <th scope="row">{{item.codigoPoliza}}</th>
+        <td>{{item.cedulaPersona}}</td>
+        <td>{{item.nombrePersona}}</td>
+        <td>{{item.codigoSeguro}}</td>
+        <td>{{item.descripcionSeguro}}</td>
+        <td>{{item.prima | currency}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

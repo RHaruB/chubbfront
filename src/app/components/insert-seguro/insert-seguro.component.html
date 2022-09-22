@@ -1,0 +1,29 @@
+<div class="content d-flex justify-content-center">
+  <div class="row justify-content-center">
+    <div class="col text-center">
+      <h1>{{titulo}}</h1>
+
+      <div class="form-floating mb-2 w-100 ">
+        <input type="text" class="form-control" name="descripcion" id="floatingInput" [(ngModel)]="seguro.descripcion"
+          placeholder="Descripción">
+        <label for="floatingInput">Descripción</label>
+      </div>
+      <div class="form-floating mb-2 w-100 ">
+        <input type="number" class="form-control" name="valor" id="floatingInput" [(ngModel)]="seguro.valor_Asegurado"
+          placeholder="Valor asegurado">
+        <label for="floatingInput">Valor asegurado</label>
+      </div>
+      <div class="form-floating mb-2 w-100 ">
+        <input type="number" class="form-control" name="Prima" id="floatingInput" [(ngModel)]="seguro.prima"
+          placeholder="Prima">
+        <label for="floatingInput">Prima</label>
+      </div>
+      <div>
+        <button class="btn btn-primary" (click)="ingresarSeguro()">{{titulo}}
+
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

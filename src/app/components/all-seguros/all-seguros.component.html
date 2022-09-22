@@ -1,0 +1,24 @@
+<div>
+  <button class="btn btn-primary" ><a class="nav-link" routerLink="/insertSeguros">Registrar Seguro</a></button>
+</div>
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Código</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Valor Asegurado</th>
+      <th scope="col">Prima</th>
+      <th scope="col">Editar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of seguros">
+      <th scope="row">{{item.codigo}}</th>
+      <td>{{item.descripcion}}</td>
+      <td>{{item.valor_Asegurado}}</td>
+      <td>{{item.prima}}</td>
+      <td><button class="btn btn-success"  (click)="editarSeguro(item)">Editar</button></td>
+    </tr>
+  </tbody>
+</table>
+
