@@ -48,7 +48,7 @@ export class SeguroService {
       codigoSeguro
     }
     let params = new HttpParams()
-      .append("cedula", poliza.codigoPersona.toString())
+      .append("codigoPersona", poliza.codigoPersona.toString())
       .append("codigoSeguro", codigoSeguro.toString())
 
     const headers = new HttpHeaders().set('content-type', 'application/json')

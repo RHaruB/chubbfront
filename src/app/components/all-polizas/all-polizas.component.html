@@ -26,7 +26,7 @@
                 <option *ngFor="let item of seguros" [value]="item.codigo">{{item.descripcion}}</option>
               </select>
               <p>Clientes</p>
-              <select [(ngModel)]="codigoCliente" [ngModelOptions]="{standalone: true}">
+              <select [(ngModel)]="codigoPersona" [ngModelOptions]="{standalone: true}">
                 <option value="0">Seleccionar cliente</option>
 
                 <option *ngFor="let item of personas" [value]="item.codigo">{{item.cedula}} - {{item.nombre}}</option>

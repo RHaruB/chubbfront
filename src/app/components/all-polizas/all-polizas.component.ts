@@ -12,7 +12,7 @@ export class AllPolizasComponent implements OnInit {
   public polizas : any[]  = []
   public seguros : any[]  = []
   public personas : any[] = []
-  public codigoCliente = 0;
+  public codigoPersona = 0;
   public codigoSeguro = 0;
   public cedula = "";
   constructor(
@@ -51,8 +51,8 @@ obtenerPersonas(){
 }
 
 asignar(){
-  if(this.codigoCliente > 0 && this.codigoSeguro > 0)
-this.seguroService.asignarPolizas(this.codigoCliente,this.codigoSeguro).subscribe(resp=>{
+  if(this.codigoPersona > 0 && this.codigoSeguro > 0)
+this.seguroService.asignarPolizas(this.codigoPersona,this.codigoSeguro).subscribe(resp=>{
   if(resp)
   this.obtenerPolizas();
 })
